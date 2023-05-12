@@ -1,3 +1,4 @@
+import getPostMetadata from "@/app/components/getPostMetadata";
 import fs from "fs";
 import matter from "gray-matter";
 import Markdown from "markdown-to-jsx";
@@ -9,21 +10,29 @@ const getPostContent = (slug: string) => {
 
   const content = fs.readFileSync(file, "utf-8");
   const matterResult = matter(content);
-  return matterResult.content;
+  return matterResult;
 };
 
 export async function generateStaticParams() {
-  return [{ slug: "aws-quickstart" }];
+  const posts = getPostMetadata();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 const PostsPage = (props: any) => {
   const slug = props.params.slug;
-  const content = getPostContent(slug);
+  const matterResult = getPostContent(slug);
 
   return (
     <div>
-      <h2>{slug}</h2>
-      <Markdown>{content}</Markdown>
+      <h2 className="text-4xl text-center">{matterResult.data.title}</h2>
+      <h6 className="text-xl text-slate-400 text-center">
+        {matterResult.data.date}
+      </h6>
+      <article className="prose xl:prose-xl mx-auto">
+        <Markdown>{matterResult.content}</Markdown>
+      </article>
     </div>
   );
 };
