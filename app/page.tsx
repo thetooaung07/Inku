@@ -1,9 +1,7 @@
-import fs from "fs";
-import Link from "next/link";
-import PostPreview from "./components/PostPreview";
-import getPostMetadata from "./components/getPostMetadata";
+import PostPreview from "./posts/components/PostPreview";
+import getPostMetadata from "./posts/components/getPostMetadata";
 
-export default function Home() {
+export default async function Home() {
   const postMetaData = getPostMetadata();
   const postPreviews = postMetaData.map((post, index) => (
     <PostPreview {...post} key={index}></PostPreview>
