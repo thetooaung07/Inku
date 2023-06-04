@@ -25,11 +25,11 @@ const PostsPage = (props: any) => {
   const matterResult = getPostContent(slug);
 
   return (
-    <div>
-      <h2 className="text-4xl text-center">{matterResult.data.title}</h2>
+    <div className="mt-8">
+      {/* <h2 className="text-4xl text-center">{matterResult.data.title}</h2>
       <h6 className="text-xl text-slate-400 text-center">
         {matterResult.data.date}
-      </h6>
+      </h6> */}
       <article className="prose xl:prose-xl mx-auto">
         <Markdown>{matterResult.content}</Markdown>
       </article>
