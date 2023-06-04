@@ -1,3 +1,4 @@
+import NavBar from "./components/ui/NavBar";
 import "./globals.css";
 
 export const metadata = {
@@ -12,10 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="container mx-auto">
-        <header>This is the header!</header>
-        {children}
-        <footer>This is the footer!</footer>
+      <body>
+        <NavBar></NavBar>
+        <div className="container mx-auto">{children}</div>
+
+        {/* <footer>This is the footer!</footer> */}
       </body>
     </html>
   );

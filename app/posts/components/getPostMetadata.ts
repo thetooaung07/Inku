@@ -1,3 +1,4 @@
+import { log } from "console";
 import fs from "fs";
 import matter from "gray-matter";
 import { PostMetadata } from "./PostMetadata";
