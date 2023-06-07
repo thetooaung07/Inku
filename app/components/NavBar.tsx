@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "../../globals.css";
+import "../globals.css";
 
 export default function NavBar() {
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -13,12 +14,12 @@ export default function NavBar() {
   return (
     <div className="bg-mainColor">
       <header className="mx-auto container">
-        <h3 className="uppercase">Inku</h3>
+        <Link href={"/"}>
+          <h3 className="uppercase">Inku</h3>
+        </Link>
         <nav ref={navRef} className="z-10">
-          <a href="/#">Home</a>
-          <a href="/#">My work</a>
-          <a href="/#">Blog</a>
-          <a href="/#">About me</a>
+          <Link href="/blog">Blog</Link>
+          <Link href="/about-me">About Me</Link>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button>

@@ -1,25 +1,25 @@
-import NavBar from "./components/ui/NavBar";
-import PostPreview from "./posts/components/PostPreview";
-import getPostMetadata from "./posts/components/getPostMetadata";
+import PostPreview from "./blog/posts/components/PostPreview";
+import { getPostMetadata } from "./blog/posts/components/getPostMetadata";
+import TypingAnimation from "./components/TypingAnimation";
+import "./globals.css";
 
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+const typedData = [
+  // "I craft digital experiences.",
+  'check out the <a href="/uses" class="underline text-purple-700">tools I use</a>',
+  'develope into my <a href="/" class="underline text-purple-700" rel="noopener noreferrer">GitHub</a>',
+  'follow me on <a href="/" class="underline text-purple-700" rel="noopener noreferrer">Twitter</a>',
+];
 
 export default async function Home() {
-  const postMetaData = getPostMetadata();
-  const postPreviews = postMetaData.map((post, index) => (
-    <PostPreview {...post} key={index}></PostPreview>
-  ));
-
   return (
     <main className="App">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
-        {postPreviews}
-      </div>
+      <span className="flex my-8 font-jetbrains" aria-hidden="true">
+        <div className="px-2 mr-2 bg-mainColor text-white rounded-lg">
+          {" "}
+          {"> ~ %"}{" "}
+        </div>
+        <TypingAnimation data={typedData} />
+      </span>
     </main>
   );
 }

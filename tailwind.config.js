@@ -7,6 +7,10 @@ module.exports = {
     "./app/**/*.{ts,tsx, mdx, md}",
   ],
   theme: {
+    fontFamily: {
+      jetbrains: ['"JetBrains Mono"', "monospace"],
+    },
+
     container: {
       center: true,
       padding: "2rem",

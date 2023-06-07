@@ -1,9 +1,8 @@
 import { log } from "console";
 import fs from "fs";
 import matter from "gray-matter";
-import { PostMetadata } from "./PostMetadata";
 
-const getPostMetadata = (): PostMetadata[] => {
+export const getPostMetadata = (): PostMetaData[] => {
   const folder = "posts/";
   const files = fs.readdirSync(folder);
   const markdownPosts = files.filter((file) => file.endsWith(".md"));
@@ -13,6 +12,7 @@ const getPostMetadata = (): PostMetadata[] => {
     const fileContents = fs.readFileSync(`posts/${fileName}`, "utf8");
     const matterResult = matter(fileContents);
     return {
+      id: fileName.replace(".md", ""),
       title: matterResult.data.title,
       date: matterResult.data.date,
       subtitle: matterResult.data.subtitle,
@@ -23,4 +23,11 @@ const getPostMetadata = (): PostMetadata[] => {
   return posts;
 };
 
-export default getPostMetadata;
+export const getPostContent = (slug: string) => {
+  const folder = "posts/";
+  const file = `${folder}${slug}.md`;
+
+  const content = fs.readFileSync(file, "utf-8");
+  const matterResult = matter(content);
+  return matterResult;
+};

@@ -1,17 +1,6 @@
-import getPostMetadata from "@/app/posts/components/getPostMetadata";
-import fs from "fs";
-import matter from "gray-matter";
-import Markdown from "markdown-to-jsx";
 import React from "react";
-
-const getPostContent = (slug: string) => {
-  const folder = "posts/";
-  const file = `${folder}${slug}.md`;
-
-  const content = fs.readFileSync(file, "utf-8");
-  const matterResult = matter(content);
-  return matterResult;
-};
+import ReactMarkdown from "react-markdown";
+import { getPostContent, getPostMetadata } from "../components/getPostMetadata";
 
 export async function generateStaticParams() {
   const posts = getPostMetadata();
@@ -31,7 +20,7 @@ const PostsPage = (props: any) => {
         {matterResult.data.date}
       </h6> */}
       <article className="prose xl:prose-xl mx-auto">
-        <Markdown>{matterResult.content}</Markdown>
+        <ReactMarkdown>{matterResult.content}</ReactMarkdown>
       </article>
     </div>
   );
