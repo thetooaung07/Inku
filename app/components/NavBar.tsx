@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "../globals.css";
+import ThemeToggle from "./ThemeToggle";
 
 export default function NavBar() {
   const navRef = useRef<HTMLDivElement | null>(null);
@@ -20,6 +21,7 @@ export default function NavBar() {
         <nav ref={navRef} className="z-10">
           <Link href="/blog">Blog</Link>
           <Link href="/about-me">About Me</Link>
+          <ThemeToggle />
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button>

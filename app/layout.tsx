@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import "./globals.css";
+import { ThemeProvider } from "./hooks/useThemeContext";
 
 export const metadata = {
   title: "T's Blog",
@@ -14,10 +15,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavBar></NavBar>
-        <div className="container mx-auto">{children}</div>
-
-        {/* <footer>This is the footer!</footer> */}
+        <ThemeProvider>
+          <NavBar></NavBar>
+          <div className="container mx-auto">{children}</div>
+          {/* <footer>This is the footer!</footer> */}
+        </ThemeProvider>
       </body>
     </html>
   );

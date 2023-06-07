@@ -4,3 +4,5 @@ type PostMetaData = {
   subtitle?: string;
   slug: string;
 };
+
+type Theme = "light" | "dark";

@@ -1,7 +1,8 @@
-import PostPreview from "./blog/posts/components/PostPreview";
-import { getPostMetadata } from "./blog/posts/components/getPostMetadata";
+"use client";
+
 import TypingAnimation from "./components/TypingAnimation";
 import "./globals.css";
+import { useThemeContext } from "./hooks/useThemeContext";
 
 const typedData = [
   // "I craft digital experiences.",
@@ -11,6 +12,8 @@ const typedData = [
 ];
 
 export default async function Home() {
+  const { theme, toggleTheme } = useThemeContext();
+
   return (
     <main className="App">
       <span className="flex my-8 font-jetbrains" aria-hidden="true">
@@ -20,6 +23,8 @@ export default async function Home() {
         </div>
         <TypingAnimation data={typedData} />
       </span>
+
+      <div className="bg-purple-600 dark:bg-red-700 w-20 h-20">Hello</div>
     </main>
   );
 }
