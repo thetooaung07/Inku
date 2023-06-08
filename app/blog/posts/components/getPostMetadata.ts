@@ -12,7 +12,6 @@ export const getPostMetadata = (): PostMetaData[] => {
     const fileContents = fs.readFileSync(`posts/${fileName}`, "utf8");
     const matterResult = matter(fileContents);
     return {
-      id: fileName.replace(".md", ""),
       title: matterResult.data.title,
       date: matterResult.data.date,
       subtitle: matterResult.data.subtitle,

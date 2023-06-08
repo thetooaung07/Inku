@@ -1,22 +1,19 @@
 "use client";
 
 import { Switch } from "@/components/ui/switch";
-import React, { useState } from "react";
-import { useThemeContext } from "../hooks/useThemeContext";
-
-type ThemeToggleProps = {
-  toggleTheme: () => void;
-};
+import { useTheme } from "next-themes";
+import React from "react";
 
 function ThemeToggle() {
-  const { theme, toggleTheme } = useThemeContext();
-
+  const { theme, setTheme } = useTheme();
   return (
     <div className="flex items-center space-x-2">
       <Switch
+        checked={theme === "dark"}
         id="theme-switch"
         onClick={() => {
-          console.log("Toggle Switch");
+          console.log(theme);
+          setTheme(theme === "light" ? "dark" : "light");
         }}
       />
     </div>

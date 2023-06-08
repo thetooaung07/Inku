@@ -3,10 +3,9 @@
 import Link from "next/link";
 import React, { useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "../globals.css";
 import ThemeToggle from "./ThemeToggle";
 
-export default function NavBar() {
+export const NavBar = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
 
   const showNavbar = () => {
@@ -14,7 +13,7 @@ export default function NavBar() {
   };
   return (
     <div className="bg-mainColor">
-      <header className="mx-auto container">
+      <header className="container">
         <Link href={"/"}>
           <h3 className="uppercase">Inku</h3>
         </Link>
@@ -32,4 +31,24 @@ export default function NavBar() {
       </header>
     </div>
   );
-}
+};
+
+export const MobileNavBar = () => {
+  return (
+    <header className="container my-4 fixed md:top-0 md:bottom-full bottom-0 left-0 right-0 text-white z-10">
+      <nav className="md:container bg-gray-800 h-16 rounded-xl w-full">
+        <div className="h-full flex justify-center md:justify-between items-center">
+          <Link href={"/"} className="hidden md:block">
+            <h3 className="uppercase">Inku</h3>
+          </Link>
+          <nav className="z-10 flex gap-8">
+            <Link href="/">Home</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/about-me">About</Link>
+            <ThemeToggle />
+          </nav>
+        </div>
+      </nav>
+    </header>
+  );
+};

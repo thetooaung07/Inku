@@ -32,7 +32,15 @@ const TypingAnimation = ({ data }: { data: string[] }) => {
     };
   }, [data]);
 
-  return <span className="typingAnimation font-bold" />;
+  return (
+    <span className="flex my-8 font-jetbrains" aria-hidden="true">
+      <div className="px-2 mr-2 bg-mainColor text-white rounded-lg">
+        {" "}
+        {"> ~ %"}{" "}
+      </div>
+      <span className="typingAnimation font-bold text-xs md:text-base flex items-center" />
+    </span>
+  );
 };
 
 export default React.memo(TypingAnimation);
