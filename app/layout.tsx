@@ -14,12 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="transition-colors  duration-300">
-        {/* <button onClick={() => setDarkMode(!darkMode)}>Hello</button> */}
+      <body className="transition-colors duration-300">
         <AppThemeProvider>
           <MobileNavBar />
           <div className="md:mt-24"></div>
-          {/* <NavBar></NavBar> */}
           <div className="container mx-auto">{children}</div>
         </AppThemeProvider>
       </body>

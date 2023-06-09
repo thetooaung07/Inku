@@ -1,6 +1,9 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import { getPostContent, getPostMetadata } from "../components/getPostMetadata";
+import {
+  getPostContent,
+  getPostMetadata,
+} from "../../../../lib/getPostMetadata";
 
 export async function generateStaticParams() {
   const posts = getPostMetadata();

@@ -2,17 +2,19 @@
 
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "next-themes";
-import React from "react";
+import React, { useMemo } from "react";
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+
+  const isDark = localStorage.getItem("theme") === "dark";
+
   return (
     <div className="flex items-center space-x-2">
       <Switch
-        checked={theme === "dark"}
+        checked={isDark}
         id="theme-switch"
         onClick={() => {
-          console.log(theme);
           setTheme(theme === "light" ? "dark" : "light");
         }}
       />

@@ -1,3 +1,4 @@
+import { RecentArticles } from "./components/RecentArticles";
 import TypingAnimation from "./components/TypingAnimation";
 import "./globals.css";
 
@@ -12,6 +13,7 @@ export default async function Home() {
   return (
     <main className="App">
       <TypingAnimation data={typedData} />
+      <RecentArticles></RecentArticles>
     </main>
   );
 }
