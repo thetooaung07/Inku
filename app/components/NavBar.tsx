@@ -35,8 +35,8 @@ export const NavBar = () => {
 
 export const MobileNavBar = () => {
   return (
-    <header className="container my-4 fixed md:top-0 md:bottom-full bottom-0 left-0 right-0 text-white z-10">
-      <nav className="md:container bg-gray-800 h-16 rounded-xl w-full">
+    <header className="container fixed md:top-0 md:bottom-full bottom-0 left-0 right-0 text-white z-10">
+      <nav className="my-4 md:container bg-gray-800 h-16 rounded-xl w-full">
         <div className="h-full flex justify-center md:justify-between items-center">
           <Link href={"/"} className="hidden md:block">
             <h3 className="uppercase">Inku</h3>
