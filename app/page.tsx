@@ -2,8 +2,6 @@ import { RecentArticles } from "./components/RecentArticles";
 import TypingAnimation from "./components/TypingAnimation";
 import "./globals.css";
 
-import "react-syntax-highlighter/dist/cjs/styles/prism/tomorrow.css";
-
 const typedData = [
   // "I craft digital experiences.",
   'check out the&nbsp;<a href="/uses" class="underline text-purple-700">tools I use</a>',
