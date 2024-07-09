@@ -1,5 +1,5 @@
+import { MarkdownRenderer } from "@/app/components/MarkdownRenderer";
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import {
   getPostContent,
   getPostMetadata,
@@ -22,8 +22,8 @@ const PostsPage = (props: any) => {
       <h6 className="text-xl text-slate-400 text-center">
         {matterResult.data.date}
       </h6> */}
-      <article className="prose xl:prose-xl mx-auto">
-        <ReactMarkdown>{matterResult.content}</ReactMarkdown>
+      <article className="prose xl:prose-xl mx-auto dark:prose-invert">
+        <MarkdownRenderer>{matterResult.content}</MarkdownRenderer>
       </article>
     </div>
   );

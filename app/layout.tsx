@@ -3,7 +3,7 @@ import "./globals.css";
 import { AppThemeProvider } from "./hooks/useThemeContext";
 
 export const metadata = {
-  title: "T's Blog",
+  title: "Inku",
   description: "Created by Thet Oo Aung",
 };
 
